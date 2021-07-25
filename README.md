@@ -71,3 +71,6 @@ Please verify you want to delete these repositories:
 Deleting repo-test...
 Deleting repo-one...
 ```
+
+## Disclaimer
+I assume no responsibility or liability for any data loss caused by the misuse or misbehaviour of this program. Use at your own peril.
