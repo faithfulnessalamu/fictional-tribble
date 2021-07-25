@@ -15,7 +15,7 @@ class Api:
         while next_page:
             resp = requests.get(next_page, auth=auth, params=params)
             if not resp.ok:
-                print("request failed with ", resp.status_code)
+                print("request failed with", resp.status_code)
                 break
 
             next_link = resp.links.get("next")
