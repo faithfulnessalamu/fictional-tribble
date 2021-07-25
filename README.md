@@ -1,6 +1,9 @@
 # fictional-tribble
 Mass delete your GitHub repositories.
 
+## WARNING
+> **The delete action cannot be undone. It will permanently delete your specified repository, wiki, issues, comments, packages, secrets, workflow runs, and remove all collaborator associations.**
+
 ## Usage
 To get started, you need to [create a new Github PAT](https://github.com/settings/tokens/new) with ```repo``` and ```delete_repo``` permissions:
 
