@@ -53,7 +53,11 @@ def cli(filename, skip_verify):
 
 
 def is_verified(repositories):
-    return input(f"   {' '.join(repositories)} (y/N): ").lower() in ["y", "yes"]
+    return click.confirm(
+        click.style(f"   {' '.join(repositories)}", fg="red", bold=True),
+        default=False,
+        show_default=True,
+    )
 
 
 if __name__ == "__main__":
