@@ -7,6 +7,7 @@ from util import list_repos_from_file
 from functools import partial
 
 API_TOKEN_KEY = "GITHUB_PAT"
+USERNAME_KEY = "GITHUB_USERNAME"
 
 
 @click.command()
@@ -20,7 +21,8 @@ API_TOKEN_KEY = "GITHUB_PAT"
     "-y", "skip_verify", is_flag=True, default=False, help="Skip delete verification"
 )
 def cli(filename, skip_verify):
-    github_api = github.Api(getenv(API_TOKEN_KEY))
+    username, pat = getenv(USERNAME_KEY), getenv(API_TOKEN_KEY)
+    github_api = github.Api(username, pat)
 
     # define where the repo list should come from,
     # file takes precedence over API
