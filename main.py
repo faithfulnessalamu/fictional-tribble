@@ -39,7 +39,7 @@ def cli(filename, skip_verify):
     repositories = repo_list_source()
 
     if not skip_verify and repositories:
-        print("\nPlease verify you want to delete these repositories:\n")
+        print("\nPlease verify you want to delete these repositories:")
         if not is_verified(repositories):
             print("\nNo changes effected, your repositories are intact")
             return
@@ -49,11 +49,11 @@ def cli(filename, skip_verify):
         try:
             github_api.delete_repo(repo_name)
         except Exception as e:
-            print(f"\nError deleting '{repo_name}': {e}")
+            print(f"Error deleting '{repo_name}': {e}")
 
 
 def is_verified(repositories):
-    return input(f"{' '.join(repositories)} (y/N): ").lower() in ["y", "yes"]
+    return input(f"   {' '.join(repositories)} (y/N): ").lower() in ["y", "yes"]
 
 
 if __name__ == "__main__":
