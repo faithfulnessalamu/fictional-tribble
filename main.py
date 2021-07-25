@@ -39,7 +39,7 @@ def cli(filename, skip_verify):
     repositories = repo_list_source()
 
     if not skip_verify and repositories:
-        print("\nPlease verify you want to delete these repositories:")
+        print("\nPlease verify you want to delete these repositories:\n")
         if not is_verified(repositories):
             print("\nNo changes effected, your repositories are intact")
             return
