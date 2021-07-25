@@ -40,9 +40,9 @@ def cli(filename, skip_verify):
 
     if not skip_verify:
         # filter out whichever repo the user declines
-        print("Please verify you want to delete these repositories:")
+        print("\nPlease verify you want to delete these repositories:")
         if not is_verified(repositories):
-            print("No changes effected, your repositories are intact")
+            print("\nNo changes effected, your repositories are intact")
             return
 
 
