@@ -39,7 +39,6 @@ def cli(filename, skip_verify):
     repositories = repo_list_source()
 
     if not skip_verify:
-        # filter out whichever repo the user declines
         print("\nPlease verify you want to delete these repositories:")
         if not is_verified(repositories):
             print("\nNo changes effected, your repositories are intact")
@@ -47,7 +46,7 @@ def cli(filename, skip_verify):
 
 
 def is_verified(repositories):
-    return input(f"{' '.join(repositories)} (y/N): ").lower() in ['y', 'yes']
+    return input(f"{' '.join(repositories)} (y/N): ").lower() in ["y", "yes"]
 
 
 if __name__ == "__main__":
