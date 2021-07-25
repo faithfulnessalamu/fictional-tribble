@@ -38,7 +38,7 @@ def cli(filename, skip_verify):
     # obtain the repositories to be deleted, potentially an API call
     repositories = repo_list_source()
 
-    if not skip_verify:
+    if not skip_verify and repositories:
         print("\nPlease verify you want to delete these repositories:")
         if not is_verified(repositories):
             print("\nNo changes effected, your repositories are intact")

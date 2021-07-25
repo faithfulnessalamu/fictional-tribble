@@ -1,4 +1,5 @@
 import requests
+import sys
 
 
 class Api:
@@ -15,8 +16,11 @@ class Api:
         while next_page:
             resp = requests.get(next_page, auth=auth, params=params)
             if not resp.ok:
-                print("request failed with", resp.status_code)
-                break
+                print(
+                    "Could not retrieve repositories, request failed with",
+                    resp.status_code,
+                )
+                sys.exit(1)
 
             next_link = resp.links.get("next")
             next_page = None if not next_link else next_link["url"]
