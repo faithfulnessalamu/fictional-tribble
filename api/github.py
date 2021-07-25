@@ -7,6 +7,18 @@ class Api:
         self._username = username
         self._api_token = api_token
 
+    def delete_repo(self, repo):
+        """delete a repo"""
+        req_url = f"https://api.github.com/repos/{self._username}/{repo}"
+        auth = (self._username, self._api_token)
+
+        print(f"Deleting {repo}...")
+        resp = requests.delete(req_url, auth=auth)
+        if not resp.ok:
+            raise Exception(
+                "could not delete repo, request failed with", resp.status_code
+            )
+
     def walk_user_repos(self):
         req_url = "https://api.github.com/user/repos"
         auth = (self._username, self._api_token)

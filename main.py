@@ -44,6 +44,13 @@ def cli(filename, skip_verify):
             print("\nNo changes effected, your repositories are intact")
             return
 
+    # delete the repositories
+    for repo_name in repositories:
+        try:
+            github_api.delete_repo(repo_name)
+        except Exception as e:
+            print(f"\nError deleting '{repo_name}': {e}")
+
 
 def is_verified(repositories):
     return input(f"{' '.join(repositories)} (y/N): ").lower() in ["y", "yes"]
